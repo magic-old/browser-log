@@ -11,7 +11,7 @@ log.setLogLevel =
   ({ logLevel }) => {
     if (isNumber(logLevel)) {
       if (logLevels.length < logLevel) {
-        setLogLevelError({ logLevel });
+        log.setLogLevelError({ logLevel });
         return;
       }
 
@@ -20,7 +20,7 @@ log.setLogLevel =
       const logLevelIndex = logLevels.indexOf(logLevel);
 
       if (logLevelIndex === -1) {
-        setLogLevelError({ logLevel });
+        log.setLogLevelError({ logLevel });
         return;
       }
 
