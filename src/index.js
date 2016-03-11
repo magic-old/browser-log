@@ -2,57 +2,52 @@ import { isNumber, isString } from 'magic-types';
 
 const logLevels = ['all', 'warnings', 'errors'];
 
-export class Log {
-  constructor =
-    ({ logLevel }) =>
-      this.setLogLevel({ logLevel });
+export const log =
+  (...args) =>
+  log.logLevel === 0 &&
+  console.log(...args);
 
-  setLogLevel =
-    ({ logLevel }) => {
-      if (isNumber(logLevel)) {
-        if (logLevels.length < logLevel) {
-          this.setLogLevelError({ logLevel });
-          return;
-        }
-
-        this.logLevel = logLevels[logLevel];
-      } else if (isString(logLevel)) {
-        const logLevelIndex = logLevels.indexOf(logLevel);
-        if (logLevelIndex === -1) {
-          this.setLogLevelError({ logLevel });
-          return;
-        }
-
-        this.logLevel = logLevelIndex;
+log.setLogLevel =
+  ({ logLevel }) => {
+    if (isNumber(logLevel)) {
+      if (logLevels.length < logLevel) {
+        setLogLevelError({ logLevel });
+        return;
       }
-    };
 
-  setLogLevelError =
-    ({ logLevel }) =>
-      this.error('logLevel', logLevel, 'does not exist');
+      log.logLevel = logLevels[logLevel];
+    } else if (isString(logLevel)) {
+      const logLevelIndex = logLevels.indexOf(logLevel);
 
-  log =
-    (...args) =>
-      this.logLevel === 0 &&
-      console.log(...args);
+      if (logLevelIndex === -1) {
+        setLogLevelError({ logLevel });
+        return;
+      }
 
-  warn =
-    (...args) =>
-      this.logLevel < 2 &&
-      console.warn(...args);
+      log.logLevel = logLevelIndex;
+    }
+  };
 
-  error =
-    (...args) =>
-      console.error(...args);
+log.setLogLevelError =
+  ({ logLevel }) =>
+    log.error('logLevel', logLevel, 'does not exist');
 
-  success =
-    (...args) =>
-    this.logLevel === 0 &&
+log.warn =
+  (...args) =>
+    log.logLevel < 2 &&
+    console.warn(...args);
+
+log.error =
+  (...args) =>
+    console.error(...args);
+
+log.success =
+  (...args) =>
+    log.logLevel === 0 &&
     console.log(`%c ${{ ...args }}`, 'color: green');
 
-  info =
-    (...args) =>
-      this.log(...args);
-}
+log.info =
+  (...args) =>
+    log.log(...args);
 
-export default new Log();
+export default log;
