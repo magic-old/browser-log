@@ -1,7 +1,7 @@
 {
-  "name": "magic-log",
+  "name": "magic-browser-log",
   "version": "0.0.1",
-  "description": "logging utility",
+  "description": "browser logging utility",
   "author": "Wizards & Witches <team@wiznwit.com>",
   "license": "AGPL-3.0",
   "main": "index.js",
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/magic/log"
+    "url": "https://github.com/magic/browser-log"
   },
   "bugs": {
-    "url": "https://github.com/magic/log/issues"
+    "url": "https://github.com/magic/browser-log/issues"
   },
-  "homepage": "https://github.com/magic/log",
+  "homepage": "https://github.com/magic/browser-log",
   "contributors": [
     {
       "name": "jascha ehrenreich",
