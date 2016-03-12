@@ -34,7 +34,7 @@ log.setLogLevelError =
 
 log.warn =
   (...args) =>
-    log.logLevel < 2 &&
+    log.logLevel >= 1 &&
     console.warn(...args);
 
 log.error =
