@@ -4,8 +4,8 @@ const logLevels = ['all', 'warnings', 'errors'];
 
 export const log =
   (...args) =>
-  log.logLevel === 0 &&
-  console.log(...args);
+    log.logLevel === 0 &&
+    console.log(...args);
 
 log.setLogLevel =
   ({ logLevel }) => {
