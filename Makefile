@@ -1,12 +1,15 @@
 NODE_BIN=node_modules/.bin/
 
 .PHONY: \
+	all \
 	dev \
 	build \
 	clean \
 	lint \
 	lint-fix \
 	test
+
+all: help
 
 dev: lint
 	@echo 'babelify package and watch for changes'
@@ -70,7 +73,7 @@ running make without task starts a dev env \n\
 dev      - start dev env \n\
 build    - build library \n\
 clean    - remove build library and test files \n\
-lint  	 - eslint javascript sources
-lint-fix - eslint and fix javascript sources
+lint  	 - eslint javascript sources \n\
+lint-fix - eslint and fix javascript sources \n\
 test     - run tests \n\
 "
