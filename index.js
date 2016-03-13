@@ -47,7 +47,7 @@ log.setLogLevelError = function (_ref2) {
 log.warn = function () {
   var _console2;
 
-  return log.logLevel < 2 && (_console2 = console).warn.apply(_console2, arguments);
+  return log.logLevel >= 1 && (_console2 = console).warn.apply(_console2, arguments);
 };
 
 log.error = function () {
